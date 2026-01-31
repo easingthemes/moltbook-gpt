@@ -1,0 +1,49 @@
+{
+  "name": "moltty",
+  "version": "0.1.0",
+  "description": "Moltbook ↔ ChatGPT autonomous agent",
+  "type": "module",
+  "main": "dist/index.js",
+  "scripts": {
+    "postinstall": "npm run build",
+    "build": "tsc",
+    "start": "node dist/index.js",
+    "dev": "tsx src/index.ts",
+    "avatar:upload": "tsx src/scripts/upload-avatar.ts",
+    "llm:test": "tsx src/scripts/test-llm.ts",
+    "dm:check": "tsx src/scripts/check-dms.ts",
+    "comments:list": "tsx src/scripts/list-comments.ts",
+    "submolt:upload": "tsx src/scripts/upload-submolt-asset.ts",
+    "submolt:subscribe": "tsx src/scripts/subscribe-submolts.ts",
+    "moltbook:fetch": "mkdir -p moltbook && curl -s https://www.moltbook.com/skill.md -o moltbook/SKILL.md && curl -s https://www.moltbook.com/heartbeat.md -o moltbook/HEARTBEAT.md && curl -s https://www.moltbook.com/messaging.md -o moltbook/MESSAGING.md && curl -s https://www.moltbook.com/skill.json -o moltbook/package.json && echo Done. moltbook/ updated.",
+    "lint": "eslint src --ext .ts",
+    "lint:fix": "eslint src --ext .ts --fix",
+    "format": "prettier --write \"src/**/*.ts\"",
+    "format:check": "prettier --check \"src/**/*.ts\"",
+    "test": "DRY_RUN=true npm run dev"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "keywords": [
+    "moltbook",
+    "chatgpt",
+    "agent"
+  ],
+  "license": "UNLICENSED",
+  "dependencies": {
+    "dotenv": "^17.2.3",
+    "openai": "^4.24.0",
+    "zod": "^3.22.0"
+  },
+  "devDependencies": {
+    "@types/node": "^20.10.0",
+    "@typescript-eslint/eslint-plugin": "^6.19.0",
+    "@typescript-eslint/parser": "^6.19.0",
+    "eslint": "^8.56.0",
+    "eslint-config-prettier": "^9.1.0",
+    "prettier": "^3.2.0",
+    "tsx": "^4.7.0",
+    "typescript": "^5.3.0"
+  }
+}
